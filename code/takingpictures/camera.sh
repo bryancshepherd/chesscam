@@ -10,10 +10,10 @@ randid=`openssl rand -hex 2`
 gn=${dt}_${randid}
 
 # Total time in milliseconds
-totaltime=${1}
+let "totaltime=${1} * 1000"
 
 # Periodicity in milliseconds
-period=${2}
+let "period=${2} * 1000"
 
 # Create path and file names
 foldername=gn_${gn}
@@ -24,4 +24,4 @@ mkdir -p ../../data/staging/photos/${foldername}
 # Burst mode timelapse 
 raspistill -t ${totaltime} -tl ${period} \
 -o ../../data/staging/photos/${foldername}/${imagename}_%04d.jpg \
--n -bm -h 600 -w 1024
+-n -bm -h 600 -w 600
