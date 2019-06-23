@@ -7,7 +7,7 @@ dt=`date +"%d-%b-%Y-%H-%M"`
 randid=`openssl rand -hex 2`
 
 # Group number
-gn=${dt}_${randid}
+gn=${randid}_${dt}
 
 # Total time in milliseconds
 let "totaltime=${1} * 1000"
@@ -24,4 +24,6 @@ mkdir -p ../../data/staging/photos/${foldername}
 # Burst mode timelapse 
 raspistill -t ${totaltime} -tl ${period} \
 -o ../../data/staging/photos/${foldername}/${imagename}_%04d.jpg \
--n -bm -h 600 -w 600
+-n -bm -h 1024 -w 1024
+
+echo 'Finished'
